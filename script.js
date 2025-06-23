@@ -1,10 +1,14 @@
    // Mobile Navigation Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
-        const header = document.getElementById('header');
+        const navOverlay = document.getElementById('navOverlay');
+        const body = document.body;
         
-        mobileToggle.addEventListener('click', () => {
+        function toggleMobileMenu() {
             navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            
             const icon = mobileToggle.querySelector('i');
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -13,18 +17,37 @@
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
+        }
+
+        function closeMobileMenu() {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            body.classList.remove('menu-open');
+            
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+
+        // Toggle menu on button click
+        mobileToggle.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when clicking overlay
+        navOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking on navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
+            });
         });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('active') && 
-                !navMenu.contains(e.target) && 
-                e.target !== mobileToggle) {
-                navMenu.classList.remove('active');
-                const icon = mobileToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                document.body.style.overflow = 'auto';
+
+        // Close menu on window resize if screen becomes larger
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
             }
         });
         
