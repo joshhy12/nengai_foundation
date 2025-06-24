@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Nengai Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #810081;
+            --secondary: #020181;
+            --accent: #ff4500;
+            --light: #ffffff;
+            --dark: #000000;
+            --light-purple: #f0d5f0;
+            --light-blue: #d5d5f0;
+            --dark-purple: #600060;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f9f0ff, #f0f0ff);
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        
+        .contact-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .contact-header p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .contact-content {
+            display: flex;
+            width: 100%;
+            gap: 40px;
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(129, 0, 129, 0.15);
+        }
+        
+        .contact-info {
+            flex: 1;
+            background: var(--gradient);
+            padding: 40px;
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .info-box {
+            margin-bottom: 30px;
+        }
+        
+        .info-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-box h3 i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .info-box p {
+            margin-bottom: 8px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(129, 0, 129, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--gradient);
+            color: var(--light);
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(129, 0, 129, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(129, 0, 129, 0.4);
+        }
+        
+        .form-footer {
+            margin-top: 30px;
+            text-align: center;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+        
+        .success-message {
+            display: none;
+            background: rgba(46, 204, 113, 0.15);
+            border: 2px solid #2ecc71;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .contact-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .contact-container {
+                padding: 20px;
+            }
+            
+            .contact-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 25px 20px;
+            }
+            
+            .submit-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact Nengai Foundation</h1>
+            <p>Have questions about our work, partnerships, or how you can support our mission? Reach out to us directly. We're here to help and collaborate.</p>
+        </div>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-box">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                    <p>Maasai Mara, Kenya</p>
+                    <p>Arusha, Tanzania</p>
+                </div>
+                
+                <div class="info-box">
+                    <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                    <p>info@nengaifoundation.org</p>
+                    <p>partnerships@nengaifoundation.org</p>
+                </div>
+                
+                <div class="info-box">
+                    <h3><i class="fas fa-phone"></i> Call Us</h3>
+                    <p>+254 712 345 678 (Kenya)</p>
+                    <p>+255 678 901 234 (Tanzania)</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name">Your Name <span style="color: var(--accent);">*</span></label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span style="color: var(--accent);">*</span></label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Organization (if applicable)</label>
+                        <input type="text" id="organization" class="form-control" placeholder="Company Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiryType">Type of Inquiry <span style="color: var(--accent);">*</span></label>
+                        <select id="inquiryType" class="form-control" required>
+                            <option value="">Select an option</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                            <option value="donation">Corporate Donations</option>
+                            <option value="volunteer">Group Volunteering</option>
+                            <option value="media">Media Inquiry</option>
+                            <option value="other">Other Business Matter</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message <span style="color: var(--accent);">*</span></label>
+                        <textarea id="message" class="form-control" placeholder="Please share details about your inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+                    </div>
+                </form>
+                
+                <div class="form-footer">
+                    <p>We typically respond to business inquiries within 1-2 business days.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-image">
+            <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Maasai Community">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            // Reset form after submission
+            setTimeout(function() {
+                document.getElementById('inquiryForm').reset();
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
